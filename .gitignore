@@ -1,0 +1,18 @@
+# Maven build target
+**/target/
+target/
+
+# IDE files
+**/.nb-gradle/
+**/.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+nbproject/private/
+
+# OS files
+.DS_Store
+Thumbs.db
