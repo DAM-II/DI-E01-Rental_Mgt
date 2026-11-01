@@ -95,6 +95,7 @@ public class MainScreen extends javax.swing.JFrame {
         menuGame.setText("jMenu1");
 
         menuItemCreateGame.setText("jMenuItem1");
+        menuItemCreateGame.addActionListener(this::menuItemCreateGameActionPerformed);
         menuGame.add(menuItemCreateGame);
 
         menuItemDeleteGame.setText("jMenuItem1");
@@ -164,6 +165,11 @@ public class MainScreen extends javax.swing.JFrame {
         CreateUserDialog dialog = new CreateUserDialog(this, true);
         dialog.setVisible(true);
     }//GEN-LAST:event_menuItemCreateUserActionPerformed
+
+    private void menuItemCreateGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCreateGameActionPerformed
+        CreateGameDialog dialog = new CreateGameDialog(this, true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_menuItemCreateGameActionPerformed
 
     /**
      * @param args the command line arguments
