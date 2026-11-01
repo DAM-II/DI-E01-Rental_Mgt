@@ -23,8 +23,8 @@ public class Rental {
     }
 
     public void returnRental(){
-        // This might have a complementing method in the db service. It has to check if the rental exists, before calling return for this specific rental.
         actualReturnDate = LocalDate.now();
+        this.gameRented.incrementStock(this.getGamePlatform());
     }
 
     public RentalStatus getStatus(){
