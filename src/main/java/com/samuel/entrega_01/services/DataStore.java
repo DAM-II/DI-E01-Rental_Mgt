@@ -18,7 +18,7 @@ public class DataStore {
         users = new ArrayList<>();
         games = new ArrayList<>();
         rentals = new ArrayList<>();
-        nextRentalId = 0;
+        nextRentalId = 1;
         preloadData();
     }
 
@@ -121,6 +121,10 @@ public class DataStore {
     // Rental ops
     public List<Rental> getRentals() {
         return rentals;
+    }
+
+    public int getNumRentals(){
+        return rentals.size();
     }
 
     public boolean createRental(Game game, User user, Platform platform){
