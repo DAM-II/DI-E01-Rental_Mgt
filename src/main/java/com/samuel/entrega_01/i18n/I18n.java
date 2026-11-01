@@ -1,5 +1,7 @@
 package com.samuel.entrega_01.i18n;
 
+import org.jetbrains.annotations.PropertyKey;
+
 import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.MissingResourceException;
@@ -23,7 +25,7 @@ public class I18n {
         bundle = ResourceBundle.getBundle(BUNDLE_BASE_NAME, currentLocale);
     }
 
-    public static String get(String key) {
+    public static String get(@PropertyKey(resourceBundle = "i18n.Bundle") String key) {
         try {
             return bundle.getString(key);
         } catch (MissingResourceException e) {
@@ -31,7 +33,7 @@ public class I18n {
         }
     }
 
-    public static String get(String key, Object... args) {
+    public static String get(@PropertyKey(resourceBundle = "i18n.Bundle") String key, Object... args) {
         String pattern = get(key);
         return MessageFormat.format(pattern, args);
     }
