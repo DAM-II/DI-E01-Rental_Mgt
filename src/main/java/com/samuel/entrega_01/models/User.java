@@ -11,9 +11,9 @@ public class User {
     private String telephone;
     private LocalDate registerDate;
 
-    public User(String firstName, String lastName, String secondSurname, String dni, String telephone) {
+    public User(String firstName, String firstSurname, String secondSurname, String dni, String telephone) {
         this.firstName = firstName;
-        this.firstSurname = lastName;
+        this.firstSurname = firstSurname;
         this.secondSurname = secondSurname;
         this.dni = dni;
         this.telephone = telephone;
