@@ -6,6 +6,7 @@ package com.samuel.entrega_01.views;
 
 import com.samuel.entrega_01.i18n.I18n;
 import com.samuel.entrega_01.models.Rental;
+import com.samuel.entrega_01.renderer.RentalTableCellRenderer;
 import com.samuel.entrega_01.services.DataStore;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -244,7 +245,8 @@ public class MainScreen extends javax.swing.JFrame {
                 r.getGameRented().getGenre().toString()
             });
         }
-        
+
+        tableRentals.setDefaultRenderer(Object.class, new RentalTableCellRenderer());
         tableRentals.setModel(model);
         labelTotalRentals.setText(I18n.get("app.total_rentals", rentals.size()));
     }
