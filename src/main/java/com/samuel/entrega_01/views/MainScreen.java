@@ -84,6 +84,7 @@ public class MainScreen extends javax.swing.JFrame {
         menuUser.setText("Edit");
 
         menuItemCreateUser.setText("jMenuItem1");
+        menuItemCreateUser.addActionListener(this::menuItemCreateUserActionPerformed);
         menuUser.add(menuItemCreateUser);
 
         menuItemDeleteUser.setText("jMenuItem1");
@@ -158,6 +159,11 @@ public class MainScreen extends javax.swing.JFrame {
         applyTranslations();
         updateRentalsTable();
     }//GEN-LAST:event_menuItemLangEnActionPerformed
+
+    private void menuItemCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCreateUserActionPerformed
+        CreateUserDialog dialog = new CreateUserDialog(this, true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_menuItemCreateUserActionPerformed
 
     /**
      * @param args the command line arguments
