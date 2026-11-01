@@ -1,6 +1,7 @@
 package com.samuel.entrega_01.models;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Game {
     private String name;
@@ -46,4 +47,14 @@ public class Game {
         return getName();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Game game)) return false;
+        return Objects.equals(getName(), game.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getName());
+    }
 }

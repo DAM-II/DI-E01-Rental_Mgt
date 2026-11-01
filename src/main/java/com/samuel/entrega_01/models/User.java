@@ -1,6 +1,7 @@
 package com.samuel.entrega_01.models;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class User {
     private String firstName;
@@ -48,4 +49,14 @@ public class User {
         return firstName + " " + firstSurname;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof User user)) return false;
+        return Objects.equals(getDni(), user.getDni());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getDni());
+    }
 }
