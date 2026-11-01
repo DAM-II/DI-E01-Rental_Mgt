@@ -10,4 +10,12 @@
         <maven.compiler.release>25</maven.compiler.release>
         <exec.mainClass>com.samuel.entrega_01.Entrega_01</exec.mainClass>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>ValidationAPI</artifactId>
+            <version>RELEASE180</version>
+        </dependency>
+    </dependencies>
 </project>
