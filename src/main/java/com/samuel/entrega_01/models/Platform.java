@@ -1,7 +1,7 @@
 package com.samuel.entrega_01.models;
 
 public enum Platform {
-    PC("PC"), PS5("PS5"), XBOX("Xbox"), SWITCH_2("Switch 2"), ANDROID("Android"), IOS("iOS");
+    PC("PC"), PS5("PS5"), XBOX("Xbox"), SWITCH_2("Switch 2");
 
     private final String displayName;
 
