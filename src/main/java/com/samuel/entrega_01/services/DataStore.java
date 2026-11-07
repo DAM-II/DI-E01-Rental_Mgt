@@ -62,11 +62,11 @@ public class DataStore {
         return true;
     }
 
-    private boolean canDeleteUser(User user){
+    public boolean canDeleteUser(User user){
         return !userHasActiveRental(user);
     }
 
-    public boolean userHasActiveRental(User user){
+    private boolean userHasActiveRental(User user){
         for(Rental r : rentals){
             // If the renter matches AND the game hasn't been returned yet
             if(r.getRenter().equals(user) && r.getActualReturnDate() == null){
@@ -97,7 +97,7 @@ public class DataStore {
         return true;
     }
 
-    private boolean canDeleteGame(Game game){
+    public boolean canDeleteGame(Game game){
         return !gameHasActiveRental(game);
     }
 
