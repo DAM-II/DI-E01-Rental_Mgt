@@ -24,7 +24,7 @@ public class MainScreen extends javax.swing.JFrame {
         initComponents();
         applyTranslations();
         updateRentalsTable();
-        setLocationRelativeTo(null); // Centers the window on the screen
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -74,6 +74,7 @@ public class MainScreen extends javax.swing.JFrame {
         menuRental.setText("File");
 
         menuItemRegisterRental.setText("jMenuItem1");
+        menuItemRegisterRental.addActionListener(this::menuItemRegisterRentalActionPerformed);
         menuRental.add(menuItemRegisterRental);
 
         menuItemReturnRental.setText("jMenuItem1");
@@ -171,6 +172,12 @@ public class MainScreen extends javax.swing.JFrame {
         dialog.setVisible(true);
     }//GEN-LAST:event_menuItemCreateGameActionPerformed
 
+    private void menuItemRegisterRentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegisterRentalActionPerformed
+        RegisterRentalDialog dialog = new RegisterRentalDialog(this, true);
+        dialog.setVisible(true);
+        updateRentalsTable();
+    }//GEN-LAST:event_menuItemRegisterRentalActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -202,7 +209,6 @@ public class MainScreen extends javax.swing.JFrame {
     private void applyTranslations(){
         setTitle(I18n.get("app.title"));
         
-        // Menus
         menuRental.setText(I18n.get("menu.rental"));
         menuItemRegisterRental.setText(I18n.get("menu.rental.register"));
         menuItemReturnRental.setText(I18n.get("menu.rental.return"));
@@ -220,7 +226,6 @@ public class MainScreen extends javax.swing.JFrame {
         menuItemLangEs.setText(I18n.get("lang.spanish"));
         menuItemLangEn.setText(I18n.get("lang.english"));
         
-        // Bottom status label
         labelTotalRentals.setText(I18n.get("app.total_rentals", DATA_STORE.getNumRentals()));
     }
     

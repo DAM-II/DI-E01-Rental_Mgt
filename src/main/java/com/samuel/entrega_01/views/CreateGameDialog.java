@@ -60,8 +60,6 @@ public class CreateGameDialog extends javax.swing.JDialog {
 
         labelGenre.setText("jLabel1");
 
-        txtName.setText("jTextField1");
-
         comboGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout panelPlatformsLayout = new javax.swing.GroupLayout(panelPlatforms);
@@ -95,7 +93,7 @@ public class CreateGameDialog extends javax.swing.JDialog {
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(panelPlatforms, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -232,7 +230,6 @@ public class CreateGameDialog extends javax.swing.JDialog {
         for(Platform platform : Platform.values()){
             JCheckBox chkbx = new JCheckBox(platform.getDisplayName());
             JLabel labelUnits = new JLabel(I18n.get("game.field.units"));
-            // Spinner: initial = 0, min = 0, max = 99, step = 1
             JSpinner spinner = new JSpinner(new SpinnerNumberModel(0, 0, 99, 1));
             spinner.setEnabled(false); // Disabled by default until checked
 
