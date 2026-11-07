@@ -32,6 +32,7 @@ public class DeleteGameDialog extends javax.swing.JDialog {
         applyTranslations();
         populateGamesTable();
         updateTableOnRowChange();
+        setLocationRelativeTo(parent);
     }
 
     /**

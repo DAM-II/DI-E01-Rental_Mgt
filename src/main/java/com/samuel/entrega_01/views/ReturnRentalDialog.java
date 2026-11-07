@@ -149,10 +149,12 @@ public class ReturnRentalDialog extends javax.swing.JDialog {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         if(selectedRental != null){
-            DATA_STORE.returnRental(selectedRental);
-            JOptionPane.showMessageDialog(this, I18n.get("msg.return.success"), "Info", JOptionPane.INFORMATION_MESSAGE);
-            populateActiveRentalsTable();
-            dispose();
+            boolean success = DATA_STORE.returnRental(selectedRental);
+            if(success){
+                JOptionPane.showMessageDialog(this, I18n.get("msg.return.success"), "Info", JOptionPane.INFORMATION_MESSAGE);
+                populateActiveRentalsTable();
+                dispose();
+            }
         }
     }//GEN-LAST:event_btnReturnActionPerformed
 
