@@ -281,8 +281,8 @@ public class DeleteUserDialog extends javax.swing.JDialog {
                 labelPhone.setText(I18n.get("table.col.phone") + ": " + selectedUser.getTelephone());
                 labelRegDate.setText(I18n.get("table.col.reg_date") + ": " + selectedUser.getRegisterDate().format(DATE_FORMATTER));
 
-                boolean hasRentals = DATA_STORE.userHasActiveRental(selectedUser);
-                if(hasRentals){
+                boolean canDeleteUser = DATA_STORE.canDeleteUser(selectedUser);
+                if(!canDeleteUser){
                     labelActiveRentals.setText(I18n.get("user.rentals.active"));
                     labelActiveRentals.setForeground(Color.RED);
                     btnDelete.setEnabled(false);
