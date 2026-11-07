@@ -144,4 +144,14 @@ public class DataStore {
         }
         return false; // Already returned, protects against double-returns
     }
+
+    public List<Rental> getActiveRentals() {
+        List<Rental> active = new ArrayList<>();
+
+        for(Rental r : rentals){
+            if(r.getActualReturnDate() == null)
+                active.add(r);
+        }
+        return active;
+    }
 }
