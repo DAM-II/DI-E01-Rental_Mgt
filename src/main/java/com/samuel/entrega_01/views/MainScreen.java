@@ -90,6 +90,7 @@ public class MainScreen extends javax.swing.JFrame {
         menuUser.add(menuItemCreateUser);
 
         menuItemDeleteUser.setText("jMenuItem1");
+        menuItemDeleteUser.addActionListener(this::menuItemDeleteUserActionPerformed);
         menuUser.add(menuItemDeleteUser);
 
         jMenuBar1.add(menuUser);
@@ -185,6 +186,11 @@ public class MainScreen extends javax.swing.JFrame {
         updateRentalsTable();
 
     }//GEN-LAST:event_menuItemReturnRentalActionPerformed
+
+    private void menuItemDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDeleteUserActionPerformed
+        DeleteUserDialog deleteUserDialog = new DeleteUserDialog(this, true);
+        deleteUserDialog.setVisible(true);
+    }//GEN-LAST:event_menuItemDeleteUserActionPerformed
 
     /**
      * @param args the command line arguments
