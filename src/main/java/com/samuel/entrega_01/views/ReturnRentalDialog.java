@@ -32,6 +32,7 @@ public class ReturnRentalDialog extends javax.swing.JDialog {
         applyTranslations();
         populateActiveRentalsTable();
         changeDataOnRowSelect();
+        setLocationRelativeTo(parent);
     }
 
     /**
