@@ -66,7 +66,7 @@ public class DataStore {
         return !userHasActiveRental(user);
     }
 
-    private boolean userHasActiveRental(User user){
+    public boolean userHasActiveRental(User user){
         for(Rental r : rentals){
             // If the renter matches AND the game hasn't been returned yet
             if(r.getRenter().equals(user) && r.getActualReturnDate() == null){
