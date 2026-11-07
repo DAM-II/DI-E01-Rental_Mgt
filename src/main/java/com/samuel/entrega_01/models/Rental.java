@@ -22,6 +22,16 @@ public class Rental {
         this.actualReturnDate = null;
     }
 
+    public Rental(int registryNumber, Game gameRented, User renter, Platform gamePlatform, LocalDate startDate, LocalDate expectedReturnDate, LocalDate actualReturnDate) {
+        this.registryNumber = registryNumber;
+        this.gameRented = gameRented;
+        this.renter = renter;
+        this.gamePlatform = gamePlatform;
+        this.startDate = startDate;
+        this.expectedReturnDate = expectedReturnDate;
+        this.actualReturnDate = actualReturnDate;
+    }
+
     public void returnRental(){
         actualReturnDate = LocalDate.now();
         this.gameRented.incrementStock(this.getGamePlatform());
