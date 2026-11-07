@@ -78,6 +78,7 @@ public class MainScreen extends javax.swing.JFrame {
         menuRental.add(menuItemRegisterRental);
 
         menuItemReturnRental.setText("jMenuItem1");
+        menuItemReturnRental.addActionListener(this::menuItemReturnRentalActionPerformed);
         menuRental.add(menuItemReturnRental);
 
         jMenuBar1.add(menuRental);
@@ -177,6 +178,13 @@ public class MainScreen extends javax.swing.JFrame {
         dialog.setVisible(true);
         updateRentalsTable();
     }//GEN-LAST:event_menuItemRegisterRentalActionPerformed
+
+    private void menuItemReturnRentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemReturnRentalActionPerformed
+        ReturnRentalDialog returnDialog = new ReturnRentalDialog(this, true);
+        returnDialog.setVisible(true);
+        updateRentalsTable();
+
+    }//GEN-LAST:event_menuItemReturnRentalActionPerformed
 
     /**
      * @param args the command line arguments
