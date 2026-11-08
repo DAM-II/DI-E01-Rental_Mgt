@@ -34,6 +34,7 @@ public class DeleteUserDialog extends javax.swing.JDialog {
         applyTranslations();
         populateUsersTable();
         updateDataOnRowChange();
+        setLocationRelativeTo(parent);
     }
 
     /**

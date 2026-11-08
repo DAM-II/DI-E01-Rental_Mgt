@@ -73,6 +73,8 @@ public class RegisterRentalDialog extends javax.swing.JDialog {
 
         labelRegistryNum.setText("jLabel1");
 
+        txtRegistryNum.setEditable(false);
+
         labelUser.setText("jLabel1");
 
         labelGame.setText("jLabel1");

@@ -26,8 +26,10 @@ public class MainScreen extends javax.swing.JFrame {
         applyTranslations();
         updateRentalsTable();
         setLocationRelativeTo(null);
-    }
 
+        tableRentals.getColumnModel().getColumn(0).setPreferredWidth(60);  // Registry ID
+        tableRentals.getColumnModel().getColumn(1).setPreferredWidth(180); // Title
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
