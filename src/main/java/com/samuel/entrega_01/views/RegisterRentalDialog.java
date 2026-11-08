@@ -65,7 +65,6 @@ public class RegisterRentalDialog extends javax.swing.JDialog {
         radioBtnXbox = new javax.swing.JRadioButton();
         panelBottomRight = new javax.swing.JPanel();
         labelGenreValue = new javax.swing.JLabel();
-        labelStockSummary = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
 
@@ -177,26 +176,20 @@ public class RegisterRentalDialog extends javax.swing.JDialog {
 
         labelGenreValue.setText("jLabel1");
 
-        labelStockSummary.setText("jLabel1");
-
         javax.swing.GroupLayout panelBottomRightLayout = new javax.swing.GroupLayout(panelBottomRight);
         panelBottomRight.setLayout(panelBottomRightLayout);
         panelBottomRightLayout.setHorizontalGroup(
             panelBottomRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBottomRightLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelBottomRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelGenreValue)
-                    .addComponent(labelStockSummary))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(labelGenreValue)
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         panelBottomRightLayout.setVerticalGroup(
             panelBottomRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBottomRightLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelGenreValue)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelStockSummary)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -374,7 +367,6 @@ public class RegisterRentalDialog extends javax.swing.JDialog {
     private javax.swing.JLabel labelRegistryNum;
     private javax.swing.JLabel labelReturnDate;
     private javax.swing.JLabel labelStartDate;
-    private javax.swing.JLabel labelStockSummary;
     private javax.swing.JLabel labelUser;
     private javax.swing.JPanel panelBottomRight;
     private javax.swing.JPanel panelLeft;
