@@ -1,8 +1,10 @@
 package com.samuel.entrega_01;
 
+import com.samuel.entrega_01.views.MainScreen;
+
 public class Entrega_01 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        java.awt.EventQueue.invokeLater(() -> new MainScreen().setVisible(true));
     }
 }
