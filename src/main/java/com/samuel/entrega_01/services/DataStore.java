@@ -2,6 +2,7 @@ package com.samuel.entrega_01.services;
 
 import com.samuel.entrega_01.models.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,9 +10,9 @@ import java.util.Map;
 
 public class DataStore {
     private static final DataStore instance = new DataStore();
-    private List<User> users;
-    private List<Game> games;
-    private List<Rental> rentals;
+    private final List<User> users;
+    private final List<Game> games;
+    private final List<Rental> rentals;
     private static int nextRentalId;
 
     private DataStore(){
@@ -19,34 +20,10 @@ public class DataStore {
         games = new ArrayList<>();
         rentals = new ArrayList<>();
         nextRentalId = 1;
-        preloadData();
     }
 
     public static DataStore getInstance(){
         return instance;
-    }
-
-    private void preloadData(){
-        User defUser1 = new User("Laura", "García", "", "", "");
-        User defUser2 = new User("Marc", "López", "", "", "");
-        users.add(defUser1);
-        users.add(defUser2);
-
-        Map<Platform, Integer> stock1 = new HashMap<>();
-        stock1.put(Platform.PS5, 2);
-        stock1.put(Platform.SWITCH_2, 3);
-        Game defGame1 = new Game("The Legend of Zelda", GameGenre.ADVENTURE, stock1);
-
-        Map<Platform, Integer> stock2 = new HashMap<>();
-        stock2.put(Platform.XBOX, 2);
-        stock2.put(Platform.PC, 4);
-        Game defGame2 = new Game("Cyberpunk 2077", GameGenre.ACTION, stock2);
-
-        games.add(defGame1);
-        games.add(defGame2);
-
-        createRental(defGame1, defUser1, Platform.PS5);
-        createRental(defGame2, defUser2, Platform.PC);
     }
 
     // User ops
@@ -153,5 +130,61 @@ public class DataStore {
                 active.add(r);
         }
         return active;
+    }
+
+    // Test data
+    public boolean loadSampleData(){
+        if(sampleDataAlreadyExists())
+            return false;
+
+        User user1 = new User("Laura", "García", "Martínez", "12345678A", "600112233");
+        User user2 = new User("Marc", "López", "Sánchez", "87654321B", "600445566");
+        User user3 = new User("Anna", "Soler", "Pujol", "45678912C", "622334455");
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+
+        Map<Platform, Integer> stock1 = new HashMap<>();
+        stock1.put(Platform.PS5, 1);
+        stock1.put(Platform.SWITCH_2, 3);
+        Game game1 = new Game("The Legend of Zelda", GameGenre.ADVENTURE, stock1);
+
+        Map<Platform, Integer> stock2 = new HashMap<>();
+        stock2.put(Platform.PC, 4);
+        stock2.put(Platform.PS5, 1);
+        stock2.put(Platform.XBOX, 2);
+        Game game2 = new Game("Cyberpunk 2077", GameGenre.ACTION, stock2);
+
+        Map<Platform, Integer> stock3 = new HashMap<>();
+        stock3.put(Platform.PC, 1);
+        stock3.put(Platform.PS5, 2);
+        stock3.put(Platform.XBOX, 1);
+        Game game3 = new Game("FIFA 25", GameGenre.SPORTS, stock3);
+
+        games.add(game1);
+        games.add(game2);
+        games.add(game3);
+
+        LocalDate r1Start = LocalDate.now().minusDays(14);
+        rentals.add(new Rental(1, game1, user1, Platform.SWITCH_2, r1Start, r1Start.plusDays(7), r1Start.plusDays(5)));
+
+        LocalDate r2Start = LocalDate.now().minusDays(20);
+        rentals.add(new Rental(2, game2, user2, Platform.PC, r2Start, r2Start.plusDays(7), r2Start.plusDays(10)));
+
+        LocalDate r3Start = LocalDate.now().minusDays(15);
+        rentals.add(new Rental(3, game3, user3, Platform.PS5, r3Start, r3Start.plusDays(7), null));
+        game3.decrementStock(Platform.PS5);
+
+        LocalDate r4Start = LocalDate.now().minusDays(2);
+        rentals.add(new Rental(4, game2, user1, Platform.XBOX, r4Start, r4Start.plusDays(7), null));
+        game2.decrementStock(Platform.XBOX);
+
+        nextRentalId = 5;
+        return true;
+    }
+
+
+    private boolean sampleDataAlreadyExists(){
+        return !users.isEmpty() || !games.isEmpty() || !rentals.isEmpty();
     }
 }
