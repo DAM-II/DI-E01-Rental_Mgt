@@ -11,6 +11,7 @@ import com.samuel.entrega_01.services.DataStore;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class MainScreen extends javax.swing.JFrame {
@@ -39,6 +40,7 @@ public class MainScreen extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRentals = new javax.swing.JTable();
         labelTotalRentals = new javax.swing.JLabel();
+        btnLoadSampleData = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuRental = new javax.swing.JMenu();
         menuItemRegisterRental = new javax.swing.JMenuItem();
@@ -70,6 +72,9 @@ public class MainScreen extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tableRentals);
 
         labelTotalRentals.setText("jLabel1");
+
+        btnLoadSampleData.setText("jButton1");
+        btnLoadSampleData.addActionListener(this::btnLoadSampleDataActionPerformed);
 
         menuRental.setText("File");
 
@@ -133,15 +138,19 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelTotalRentals)
+                .addGap(106, 106, 106)
+                .addComponent(btnLoadSampleData)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(labelTotalRentals)
-                .addGap(19, 19, 19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTotalRentals)
+                    .addComponent(btnLoadSampleData))
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -198,6 +207,15 @@ public class MainScreen extends javax.swing.JFrame {
         deleteGameDialog.setVisible(true);
     }//GEN-LAST:event_menuItemDeleteGameActionPerformed
 
+    private void btnLoadSampleDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadSampleDataActionPerformed
+        boolean loaded = DATA_STORE.loadSampleData();
+        if(loaded){
+            JOptionPane.showMessageDialog(this, I18n.get("msg.sample_data.loaded"), "Info", JOptionPane.INFORMATION_MESSAGE);
+            updateRentalsTable();
+            btnLoadSampleData.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnLoadSampleDataActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -247,6 +265,7 @@ public class MainScreen extends javax.swing.JFrame {
         menuItemLangEn.setText(I18n.get("lang.english"));
         
         labelTotalRentals.setText(I18n.get("app.total_rentals", DATA_STORE.getNumRentals()));
+        btnLoadSampleData.setText(I18n.get("app.btn.load_sample_data"));
     }
     
     private void updateRentalsTable(){
@@ -289,6 +308,7 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLoadSampleData;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelTotalRentals;
